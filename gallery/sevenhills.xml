@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map srs="+init=epsg:27700">
+  <Style name="relief">
+    <Rule>
+      <RasterSymbolizer>
+        <RasterColorizer default-mode="linear">
+          <stop value="0" color="rgb(30, 110, 30)" />
+          <stop value="35" color="rgb(110, 220, 110)" />
+          <stop value="70" color="rgb(240, 250, 160)" />
+          <stop value="120" color="rgb(217, 95, 14)" />
+          <stop value="150" color="rgb(230, 220, 170)" />
+          <stop value="170" color="rgb(220, 220, 220)" />
+          <stop value="230" color="rgb(250, 250, 250)" />
+        </RasterColorizer>
+      </RasterSymbolizer>
+    </Rule>
+  </Style>
+  <Style name="hillshade">
+    <Rule>
+      <RasterSymbolizer opacity="0.65" mode="multiply" />
+    </Rule>
+  </Style>
+
+  <Layer name="dem">
+    <StyleName>relief</StyleName>
+    <Datasource>
+      <Parameter name="type">gdal</Parameter>
+      <Parameter name="file">edinburgh.tif</Parameter>
+      <Parameter name="band">1</Parameter>
+    </Datasource>
+  </Layer>
+  <Layer name="hillshade">
+    <StyleName>hillshade</StyleName>
+    <Datasource>
+      <Parameter name="type">gdal</Parameter>
+      <Parameter name="file">edinburgh-hillshade.tif</Parameter>
+    </Datasource>
+  </Layer>
+</Map>

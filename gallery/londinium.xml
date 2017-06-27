@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map srs="+init=epsg:27700">
+  <Style name="relief">
+    <Rule>
+      <RasterSymbolizer>
+        <RasterColorizer default-mode="linear">
+          <stop value="0" color="rgb(10, 100, 10)" />
+          <stop value="5" color="rgb(110, 220, 110)" />
+          <stop value="7" color="rgb(240, 250, 160)" />
+          <stop value="20" color="rgb(217, 95, 14)" />
+          <stop value="40" color="rgb(230, 220, 170)" />
+          <stop value="60" color="rgb(220, 220, 220)" />
+          <stop value="80" color="rgb(250, 250, 250)" />
+        </RasterColorizer>
+      </RasterSymbolizer>
+    </Rule>
+  </Style>
+  <Style name="hillshade">
+    <Rule>
+      <RasterSymbolizer opacity="0.6" mode="multiply" />
+    </Rule>
+  </Style>
+
+  <Layer name="dem">
+    <StyleName>relief</StyleName>
+    <Datasource>
+      <Parameter name="type">gdal</Parameter>
+      <Parameter name="file">london.tif</Parameter>
+      <Parameter name="band">1</Parameter>
+    </Datasource>
+  </Layer>
+  <Layer name="hillshade">
+    <StyleName>hillshade</StyleName>
+    <Datasource>
+      <Parameter name="type">gdal</Parameter>
+      <Parameter name="file">london-hillshade.tif</Parameter>
+    </Datasource>
+  </Layer>
+</Map>
